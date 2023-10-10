@@ -1,16 +1,25 @@
-import { useState } from 'react'
-import './App.css'
-import Card from './components/Card'
 
+import { useState } from 'react'
+
+import { createContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import ProjectPage from "./Pages/ProjectPage";
+
+
+export const DataContext = createContext();
 function App() {
 
   return (
-    <>
-      <div>
-        <Card></Card>
+    <DataContext.Provider>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<ProjectPage />} />
+        </Routes>
       </div>
-    </>
-  )
+    </DataContext.Provider>
+  );
+
 }
 
-export default App
+export default App;
