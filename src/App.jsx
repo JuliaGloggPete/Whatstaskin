@@ -1,12 +1,16 @@
+
 import { useEffect, useState } from "react";
+
 import { createContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import ProjectPage from "./Pages/ProjectPage";
 
+
 export const DataContext = createContext();
 
 function App() {
+
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
@@ -23,6 +27,7 @@ function App() {
     fetchTasks();
   }, []);
 
+
   return (
     <DataContext.Provider value={[tasks]}>
       <div className="App">
@@ -32,6 +37,7 @@ function App() {
       </div>
     </DataContext.Provider>
   );
+
 }
 
 export default App;
