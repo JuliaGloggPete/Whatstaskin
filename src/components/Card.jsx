@@ -1,4 +1,6 @@
 import { useState } from "react"
+import "../assets/Card.css"
+import "../assets/colors.css"
 
 const Card = () => {
 
@@ -10,6 +12,7 @@ const Card = () => {
         if (newText != '') {
             setNewText('');
             console.log('!');
+            
             const newTextField = createTextField(textFields.length);
         
             setTextFields(textFields => [...textFields, newTextField]);
@@ -20,7 +23,9 @@ const Card = () => {
     const createTextField = (key) => {
         console.log(key)
         return (
-            <div>
+            <div className="singleCard">
+
+     
                 <p key={key}>{newText}</p>
                 <input key={key} type="checkbox"></input>
             </div>
@@ -38,13 +43,17 @@ const Card = () => {
     }
 
     return (
-        <>
-            <input type="text" value={headline} onChange={handleHeadline}></input>
+        <><div className="allCards">
+
+      
+            <input type="text" className="textField" value={headline} onChange={handleHeadline}></input>
             <br></br>
             {textFields}
-            <input type="text" value={newText} onChange={handleInput}></input>
+            <input type="text" className="textField" value={newText} onChange={handleInput}></input>
+            <div></div>
             <br></br>
             <button onClick={newTextField}>+</button>
+            </div>
         </>
     )
 }
