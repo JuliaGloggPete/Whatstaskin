@@ -7,12 +7,14 @@ const Card = () => {
     const [headline, setHeadline] = useState('');
 
     const newTextField = () => {
-        setNewText('');
-        console.log('!');
-        const newTextField = createTextField(textFields.length);
-      
-        setTextFields(textFields => [...textFields, newTextField]);
-        console.log(textFields);
+        if (newText != '') {
+            setNewText('');
+            console.log('!');
+            const newTextField = createTextField(textFields.length);
+        
+            setTextFields(textFields => [...textFields, newTextField]);
+            console.log(textFields);
+        }
     }
 
     const createTextField = (key) => {
