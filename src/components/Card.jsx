@@ -56,12 +56,14 @@ const Card = (props) => {
   return (
     <>
       <div className="allCards">
+      <div className="singleCard">
         <input type="text" value={headline} onChange={handleHeadline}></input>
         <br />
         {textFields}
         <input type="text" value={newText} onChange={handleInput}></input>
         <br />
         <button onClick={newTextField}>save</button>
+        </div>
       </div>
     </>
   );
