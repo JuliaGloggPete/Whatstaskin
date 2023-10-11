@@ -1,23 +1,30 @@
-import { useId, useState } from "react"
+import { useEffect, useState } from "react"
 
 const Card = (props) => {
 
-    
     const [textFields, setTextFields] = useState([]);
     const [newText, setNewText] = useState('');
     const [headline, setHeadline] = useState('');
     
+    useEffect (()=> {
+        setPrefetchedData();
+      }, []);
 
+
+    const setPrefetchedData = () => {
     if (props.task) {
+        console.log(props.task);
         setHeadline(props.task.taskName);
+        setNewText(props.task.description);
+        newTextField();
     }
-
+    }
 
     const newTextField = () => {
         if (newText != '') {
             setNewText('');
             console.log('!');
-            const newTextField = createTextField();
+            const newTextField = createTextField(textFields.length);
         
             setTextFields(textFields => [...textFields, newTextField]);
             console.log(textFields);
@@ -47,11 +54,11 @@ const Card = (props) => {
 
     return (
         <>
-            <h2 value={headline} onChange={handleHeadline}></h2>
-            <br></br>
-            {textFields}
-            <input type="text" value={newText} onChange={handleInput}></input>
-            <br></br>
+            <input type="text" value={headline} onChange={handleHeadline}></input>
+                <br></br>
+                {textFields}
+                <input type="text" value={newText} onChange={handleInput}></input>
+                <br></br>
             <button onClick={newTextField}>+</button>
         </>
     )
