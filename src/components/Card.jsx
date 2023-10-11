@@ -44,12 +44,11 @@ const Card = (props) => {
 
       <div key={key}>
         
-      <h2>{headline}</h2>
-        
+      
   
         <div className="singleTask">
 
-        <p>{newText}</p>
+        <p>{newItemText}</p>
 
         <input type="checkbox"></input>
         </div>
@@ -70,7 +69,7 @@ const Card = (props) => {
     <>
 
       <div className="singleCard">
-        <input type="text" value={headline} onChange={handleHeadline}></input>
+        <h2>{headline}</h2>
         <br />
         {textFields}
         <input type="text" value={newText} onChange={handleInput}></input>
