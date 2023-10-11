@@ -1,16 +1,13 @@
 import ProjectName from "../components/ProjectName";
-import { useContext } from "react";
-import { DataContext } from "../App";
+import ProjectBoard from "../components/ProjectBoard";
 
 function ProjectPage() {
-  const [tasks] = useContext(DataContext);
-
-  console.log(tasks);
-
   return (
     <>
       <ProjectName title="My awesome project name" />;
-      <main>{tasks && tasks.map((task, i) => <p>{task.taskName}</p>)}</main>
+      <ProjectBoard heading="Development" />
+      <ProjectBoard heading="Backlog" />
+      <ProjectBoard heading="Done" />
     </>
   );
 }
