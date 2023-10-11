@@ -16,30 +16,43 @@ const Card = (props) => {
     if (props.task) {
       console.log(props.task);
       setHeadline(props.task.taskName);
-      setNewText(props.task.description);
-      newTextField();
+
+      const startTextField = createTextField(props.task.description);
+      setTextFields([startTextField]);
     }
   };
 
   const newTextField = () => {
-    if (newText != "") {
-      setNewText("");
-      console.log("!");
+    
 
-      const newTextField = createTextField(textFields.length);
+   if (newText != "") {
+        const newTextField = createTextField(newText);
+        setNewText("");
+        setTextFields((textFields) => [...textFields, newTextField]);
 
-      setTextFields((textFields) => [...textFields, newTextField]);
-      console.log(textFields);
-    }
+    } 
+
+    
+   
+
   };
 
-  const createTextField = () => {
+  const createTextField = (newItemText) => {
     const key = Date.now();
     console.log(key);
     return (
+
       <div key={key}>
+        
+      <h2>{headline}</h2>
+        
+  
+        <div className="singleTask">
+
         <p>{newText}</p>
+
         <input type="checkbox"></input>
+        </div>
       </div>
     );
   };
@@ -55,16 +68,17 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="allCards">
-        <div className="singleCard">
-          <input type="text" value={headline} onChange={handleHeadline}></input>
-          <br />
-          {textFields}
-          <input type="text" value={newText} onChange={handleInput}></input>
-          <br />
-          <button onClick={newTextField}>save</button>
+
+      <div className="singleCard">
+        <input type="text" value={headline} onChange={handleHeadline}></input>
+        <br />
+        {textFields}
+        <input type="text" value={newText} onChange={handleInput}></input>
+        <br />
+        <button onClick={newTextField}>save</button>
+
         </div>
-      </div>
+      
     </>
   );
 };
