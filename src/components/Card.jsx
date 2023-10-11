@@ -6,20 +6,22 @@ const Card = () => {
   const [headline, setHeadline] = useState("");
 
   const newTextField = () => {
-    setNewText("");
-    console.log("!");
-    const newTextField = createTextField(textFields.length);
+    if (newText != "") {
+      setNewText("");
+      console.log("!");
+      const newTextField = createTextField(textFields.length);
 
-    setTextFields((textFields) => [...textFields, newTextField]);
-    console.log(textFields);
+      setTextFields((textFields) => [...textFields, newTextField]);
+      console.log(textFields);
+    }
   };
 
   const createTextField = (key) => {
     console.log(key);
     return (
-      <div key={key}>
-        <p>{newText}</p>
-        <input type="checkbox"></input>
+      <div>
+        <p key={key}>{newText}</p>
+        <input key={key} type="checkbox"></input>
       </div>
     );
   };
