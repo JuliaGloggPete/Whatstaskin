@@ -61,7 +61,7 @@ const Card = (props) => {
         {textFields}
         <input type="text" value={newText} onChange={handleInput}></input>
         <br />
-        <button onClick={newTextField}>+</button>
+        <button onClick={newTextField}>save</button>
       </div>
     </>
   );
