@@ -4,15 +4,14 @@
     background-color:var(--btn-color);
 }
 .singleCard{
-    
     min-height: 100px;
-
     background-color: var(--post-it-color);
     margin: 5px;
-   padding: 1rem;
-  width:   calc(85)
+    padding: 1rem;
+    width:   calc(85)
 }
-.allCards{
+
+/* .allCards{
     background-color: var(--text-color-headings);
     margin: 5px;
     max-width:   calc(25% - 20px);
@@ -21,7 +20,8 @@
     flex-direction: column;
     gap: 1rem;
 
-}
+} */
+
 button{
     background-color: var(--btn-color);
     align-self: flex-start;

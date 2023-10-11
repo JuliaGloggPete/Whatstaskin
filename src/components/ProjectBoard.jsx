@@ -1,6 +1,7 @@
 import { DataContext } from "../App";
 import { useContext, useEffect, useState } from "react";
 import Card from "../components/Card";
+import "../Styles/ProjectBoard.css";
 
 function ProjectBoard({ heading }) {
   const [cards, setCards] = useState([]);
@@ -20,7 +21,7 @@ function ProjectBoard({ heading }) {
   }
 
   return (
-    <div>
+    <div className="projectBoard">
       <header>{heading}</header>
       <button onClick={createCard}>Add task</button>
       {cards}
