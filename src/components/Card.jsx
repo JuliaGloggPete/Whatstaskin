@@ -16,29 +16,33 @@ const Card = (props) => {
     if (props.task) {
       console.log(props.task);
       setHeadline(props.task.taskName);
-      setNewText(props.task.description);
-      newTextField();
+
+      const startTextField = createTextField(props.task.description);
+      setTextFields([startTextField]);
     }
   };
 
   const newTextField = () => {
-    if (newText != "") {
-      setNewText("");
-      console.log("!");
+    
 
-      const newTextField = createTextField(textFields.length);
+   if (newText != "") {
+        const newTextField = createTextField(newText);
+        setNewText("");
+        setTextFields((textFields) => [...textFields, newTextField]);
 
-      setTextFields((textFields) => [...textFields, newTextField]);
-      console.log(textFields);
-    }
+    } 
+
+    
+   
+
   };
 
-  const createTextField = () => {
+  const createTextField = (newItemText) => {
     const key = Date.now();
     console.log(key);
     return (
       <div className="singleCard" key={key}>
-        <p>{newText}</p>
+        <p>{newItemText}</p>
         <input type="checkbox"></input>
       </div>
     );
