@@ -37,7 +37,7 @@ const Card = (props) => {
     const key = Date.now();
     console.log(key);
     return (
-      <div className="singleCard" key={key}>
+      <div key={key}>
         <p>{newText}</p>
         <input type="checkbox"></input>
       </div>
@@ -56,13 +56,13 @@ const Card = (props) => {
   return (
     <>
       <div className="allCards">
-      <div className="singleCard">
-        <input type="text" value={headline} onChange={handleHeadline}></input>
-        <br />
-        {textFields}
-        <input type="text" value={newText} onChange={handleInput}></input>
-        <br />
-        <button onClick={newTextField}>save</button>
+        <div className="singleCard">
+          <input type="text" value={headline} onChange={handleHeadline}></input>
+          <br />
+          {textFields}
+          <input type="text" value={newText} onChange={handleInput}></input>
+          <br />
+          <button onClick={newTextField}>save</button>
         </div>
       </div>
     </>
