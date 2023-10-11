@@ -1,6 +1,12 @@
+
 import { useEffect, useState } from "react"
 
+import "../assets/Card.css"
+import "../assets/colors.css"
+
+
 const Card = (props) => {
+
 
     const [textFields, setTextFields] = useState([]);
     const [newText, setNewText] = useState('');
@@ -24,6 +30,7 @@ const Card = (props) => {
         if (newText != '') {
             setNewText('');
             console.log('!');
+
             const newTextField = createTextField(textFields.length);
         
             setTextFields(textFields => [...textFields, newTextField]);
@@ -31,14 +38,15 @@ const Card = (props) => {
         }
     }
 
+
     const createTextField = () => {
         const key = Date.now();
         console.log(key)
         return (
-            <div  key={key}>
+            <div className="singleCard" key={key}>
                 <p>{newText}</p>
                 <input type="checkbox"></input>
-            </div>
+
         )
     }
 
@@ -52,16 +60,22 @@ const Card = (props) => {
         console.log(headline)
     }
 
-    return (
-        <>
-            <input type="text" value={headline} onChange={handleHeadline}></input>
-                <br></br>
-                {textFields}
-                <input type="text" value={newText} onChange={handleInput}></input>
-                <br></br>
-            <button onClick={newTextField}>+</button>
-        </>
-    )
-}
 
-export default Card
+
+
+  return (
+    <>
+    <div className="allCards">
+      <input type="text" value={headline} onChange={handleHeadline}></input>
+      <br />
+      {textFields}
+      <input type="text" value={newText} onChange={handleInput}></input>
+      <br />
+      <button onClick={newTextField}>+</button>
+      </div>
+    </>
+  );
+};
+
+export default Card;
+
