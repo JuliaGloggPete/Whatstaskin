@@ -1,18 +1,36 @@
-import { useState } from "react"
+
+import { useEffect, useState } from "react"
+
 import "../assets/Card.css"
 import "../assets/colors.css"
 
-const Card = () => {
-  const [textFields, setTextFields] = useState([]);
-  const [newText, setNewText] = useState("");
-  const [headline, setHeadline] = useState("");
 
+const Card = (props) => {
+
+
+    const [textFields, setTextFields] = useState([]);
+    const [newText, setNewText] = useState('');
+    const [headline, setHeadline] = useState('');
+    
+    useEffect (()=> {
+        setPrefetchedData();
+      }, []);
+
+
+    const setPrefetchedData = () => {
+    if (props.task) {
+        console.log(props.task);
+        setHeadline(props.task.taskName);
+        setNewText(props.task.description);
+        newTextField();
+    }
+    }
 
     const newTextField = () => {
         if (newText != '') {
             setNewText('');
             console.log('!');
-            
+
             const newTextField = createTextField(textFields.length);
         
             setTextFields(textFields => [...textFields, newTextField]);
@@ -20,15 +38,15 @@ const Card = () => {
         }
     }
 
-    const createTextField = (key) => {
+
+    const createTextField = () => {
+        const key = Date.now();
         console.log(key)
         return (
-            <div className="singleCard">
+            <div className="singleCard" key={key}>
+                <p>{newText}</p>
+                <input type="checkbox"></input>
 
-     
-                <p key={key}>{newText}</p>
-                <input key={key} type="checkbox"></input>
-            </div>
         )
     }
 
@@ -60,3 +78,4 @@ const Card = () => {
 };
 
 export default Card;
+
