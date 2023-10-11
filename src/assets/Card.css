@@ -1,7 +1,13 @@
-
+h2{
+    color: var(--text-color-headings);
+}
 
 .textField{
     background-color:var(--btn-color);
+}
+.singleTask{
+    display: flex;
+    flex-direction: row;
 }
 .singleCard{
     min-height: 100px;
