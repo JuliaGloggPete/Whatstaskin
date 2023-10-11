@@ -1,7 +1,7 @@
-import "../Styles/ProjectBoard.css";
+import "../Styles/ProjectPage.css";
 function ProjectName({ title }) {
   return (
-    <header>
+    <header className="projectPage_header">
       <h1 className="projectName">{title}</h1>
     </header>
   );

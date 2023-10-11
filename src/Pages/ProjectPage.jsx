@@ -5,7 +5,7 @@ import "../Styles/ProjectPage.css";
 function ProjectPage() {
   return (
     <div className="projectPage">
-      <ProjectName title="My awesome project name" />
+      <ProjectName title="What's taskin'" />
       <ProjectBoard heading="Development" />
     </div>
   );

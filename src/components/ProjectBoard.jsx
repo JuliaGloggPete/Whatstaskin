@@ -22,7 +22,7 @@ function ProjectBoard({ heading }) {
 
   return (
     <div className="projectBoard">
-      <header>{heading}</header>
+      <header className="projectBoard_header">{heading}</header>
       <button onClick={createCard}>Add task</button>
       {cards}
     </div>
