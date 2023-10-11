@@ -3,10 +3,10 @@ import "../assets/Card.css"
 import "../assets/colors.css"
 
 const Card = () => {
+  const [textFields, setTextFields] = useState([]);
+  const [newText, setNewText] = useState("");
+  const [headline, setHeadline] = useState("");
 
-    const [textFields, setTextFields] = useState([]);
-    const [newText, setNewText] = useState('');
-    const [headline, setHeadline] = useState('');
 
     const newTextField = () => {
         if (newText != '') {
@@ -42,20 +42,21 @@ const Card = () => {
         console.log(headline)
     }
 
-    return (
-        <><div className="allCards">
 
-      
-            <input type="text" className="textField" value={headline} onChange={handleHeadline}></input>
-            <br></br>
-            {textFields}
-            <input type="text" className="textField" value={newText} onChange={handleInput}></input>
-            <div></div>
-            <br></br>
-            <button onClick={newTextField}>+</button>
-            </div>
-        </>
-    )
-}
 
-export default Card
+
+  return (
+    <>
+    <div className="allCards">
+      <input type="text" value={headline} onChange={handleHeadline}></input>
+      <br />
+      {textFields}
+      <input type="text" value={newText} onChange={handleInput}></input>
+      <br />
+      <button onClick={newTextField}>+</button>
+      </div>
+    </>
+  );
+};
+
+export default Card;
