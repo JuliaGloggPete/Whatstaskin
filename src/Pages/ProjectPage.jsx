@@ -6,8 +6,6 @@ function ProjectPage() {
     <>
       <ProjectName title="My awesome project name" />
       <ProjectBoard heading="Development" />
-      <ProjectBoard heading="Backlog" />
-      <ProjectBoard heading="Done" />
     </>
   );
 }
