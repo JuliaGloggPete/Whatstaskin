@@ -37,9 +37,15 @@ const Card = (props) => {
     const key = Date.now();
     console.log(key);
     return (
-      <div className="singleCard" key={key}>
+      <div key={key}>
+        
+      <h2>{headline}</h2>
+        
+  
+        <div className="singleTask">
         <p>{newText}</p>
         <input type="checkbox"></input>
+        </div>
       </div>
     );
   };
@@ -55,7 +61,7 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="allCards">
+      
       <div className="singleCard">
         <input type="text" value={headline} onChange={handleHeadline}></input>
         <br />
@@ -64,7 +70,7 @@ const Card = (props) => {
         <br />
         <button onClick={newTextField}>save</button>
         </div>
-      </div>
+      
     </>
   );
 };
