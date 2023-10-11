@@ -46,6 +46,7 @@ const Card = (props) => {
             <div className="singleCard" key={key}>
                 <p>{newText}</p>
                 <input type="checkbox"></input>
+                </div>
 
         )
     }
