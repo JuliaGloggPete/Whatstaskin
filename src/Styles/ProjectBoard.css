@@ -1,4 +1,11 @@
 .projectBoard {
     background-color: #F0E0C3;
     max-width: 300px;
+    padding: 1.5rem;
+}
+.projectBoard header {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: #06004A;
 }
